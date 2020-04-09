@@ -3,6 +3,7 @@ This is a sprint board, specifically designed to be more accessible and thus usa
 
 ## Demo's
 
+[Live Demo](https://meessour.github.io/web-design-1920/)
 
 ## Table of Contents
 1. [How to install](#how-to-install)
@@ -13,26 +14,10 @@ This is a sprint board, specifically designed to be more accessible and thus usa
 
 **Step 1:** Clone project:
 ```git
-git clone https://github.com/meessour/real-time-web-1920.git
+git clone https://github.com/meessour/web-design-1920.git
 ```
 
-**Step 2:** Navigate to the project's root using: `cd`
-```git
-cd C:/../..
-```
-
-**Step 3:** Install dependencies:
-```git
-npm install
-```
-
-**Step 4:** Start the server:
-```git
-npm start
-```
-
-**Step 5:** Open browser and navigate to: http://localhost:1337/
-
+**Step 2:** Open index.html in your browser
 ## But why?
 <Who is Martijn?>
 
