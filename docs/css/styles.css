@@ -1,60 +1,78 @@
 :root {
     --dark-1: #313131;
+    --dark-1-crystalline: rgba(49, 49, 49, 0.5);
+
     --dark-2: #414141;
     --dark-3: #525252;
 
-    --red-1: #F0606F;
-    --red-2: #ca3e47;
-    --red-3: #FF1607;
-    --white: #eeeeee;
-    --blue: #00adb5;
-    --yellow: #F9F871;
-    --green: #9DDD80;
+    --red: rgba(255, 84, 70, 1);
+    --white: rgba(238, 238, 238, 1);
+    --white-hover: rgba(205, 205, 205, 1);
+    --blue: rgba(0, 173, 181, 1);
+    --yellow: rgba(193, 194, 60, 1);
+    --green: rgba(47, 171, 99, 1);
+
+    --purple: #845EC2;
+    --blue-2: #2C73D2;
 }
 
 body {
     min-height: 100vh;
     font-family: "Roboto", sans-serif;
     color: var(--white);
-    background-color: var(--dark-2);
+    background-color: var(--white);
     margin: 0;
 }
 
-.box {
-    height: 100px;
-    width: 100px;
-    background-color: black;
+.box, .box-skeleton {
+    height: fit-content;
+    background-color: var(--white);
+    color: var(--dark-1);
     position: relative;
-    top: 5px;
-    left: 5px;
     cursor: pointer;
+    margin: 4px 8px;
+    padding: 8px;
+    text-align: start;
+    text-decoration: none;
+    border-radius: 4px;
 }
 
-.held {
-    border: solid 10px black;
-    background-color: black;
+.box:hover {
+    background-color: var(--white-hover);
 }
 
-.hovered {
-    border: dotted 5px black;
+.box:focus {
+    margin: 0 4px;
+    border: dashed 4px var(--red);
+    animation: color-focus 2.5s infinite linear;
+
 }
 
-.invisible {
-    display: none;
+@keyframes color-focus {
+    0% {
+        border-color: var(--red);
+    }
+    50% {
+
+        border-color: var(--blue);
+    }
+    100% {
+        border-color: var(--red);
+    }
 }
 
-.container {
-    margin: auto;
-    top: 100px;
-    width: 400px;
-    position: relative;
+.box-skeleton {
+    -webkit-box-shadow: inset 0 0 0 3px var(--white);
+    -moz-box-shadow: inset 0 0 0 3px var(--white);
+    box-shadow: inset 0 0 0 2px var(--white);
+
+    background-color: transparent;
+    color: transparent;
 }
 
 .board-container {
     height: 100%;
     width: 100%;
-
-    background-color: var(--dark-2);
 
     position: fixed;
 
@@ -65,24 +83,74 @@ body {
 
 .board-title {
     margin: 0;
-    padding: 16px 0;
-    background-color: var(--dark-1);
+    padding: 8px 0;
+
+    font-size: 48px;
+
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
 }
 
-.board-wrapper {
+.board {
+    background-color: var(--dark-1);
+
+    padding-top: 4px;
+
+    height: 100%;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#todo-board, #doing-board, #verify-board, #done-board {
+    background-color: var(--dark-1);
+
     flex: 1;
     text-align: center;
     margin: 8px;
 
     display: flex;
     flex-direction: column;
-
+    border-radius: 8px;
 }
 
-.board {
-    height: 100%;
-    text-align: center;
-    border: dashed 3px var(--red-3);
+#todo-board {
+    background-color: var(--red);
+    margin-right: 0;
+}
+
+#doing-board {
+    background-color: var(--blue);
+    margin-right: 0;
+}
+
+#verify-board {
+    background-color: var(--yellow);
+    margin-right: 0;
+}
+
+#done-board {
+    background-color: var(--green);
+}
+
+.hovered {
+    /*background-color: var(--dark-1-crystalline);*/
+    background-color: rgba(49, 49, 49, 0.5);
+}
+
+.doing-border {
+    border: dashed 0 3px 3px 3px var(--blue);
+}
+
+.verify-border {
+    border: dashed 3px var(--yellow);
+}
+
+.done-border {
+    border: dashed 3px var(--green);
 }
 
 .items-container {

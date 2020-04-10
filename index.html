@@ -4,36 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="docs/css/styles.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="docs/js/script.js"></script>
-    <title>Todo This Sprint</title>
+    <script defer src="docs/js/navigation.js"></script>
+
+    <title>Accessible Scrum Board</title>
 </head>
 <body>
 
 <div class="board-container">
-    <div class="board-wrapper">
+    <div id="todo-board">
         <h1 class="board-title">To Do</h1>
 
-        <div class="board">
-            <div class="box" draggable="true"></div>
+        <div class="board"
+             ondragenter="dragenter(event)"
+             ondragleave="dragleave(event)"
+             ondrop="drop(event)"
+             ondragover="dragover(event)">
+
+            <a href="#" id="box-0" class="box" draggable="true" ondragstart="dragstart(event)"
+               ondragend="dragend(event)">Martijn vragen of het goed is dat dit element als eerste wordt gefocused</a>
+
+            <a href="#" id="box-1" class="box" draggable="true" ondragstart="dragstart(event)"
+               ondragend="dragend(event)">Martijn's mening vragen</a>
+
+            <a href="#" id="box-2" class="box" draggable="true" ondragstart="dragstart(event)"
+               ondragend="dragend(event)">Martijn vragen of iets onduidelijk is</a>
+
+            <a href="#" id="box-3" class="box" draggable="true" ondragstart="dragstart(event)"
+               ondragend="dragend(event)">Martijn vragen of alles leesbaar is</a>
+
+            <a href="#" id="box-4" class="box" draggable="true" ondragstart="dragstart(event)"
+               ondragend="dragend(event)">Martijn vragen of de keybindings naar wens zijn</a>
+
+            <a href="#" id="box-5" class="box" draggable="true" ondragstart="dragstart(event)"
+               ondragend="dragend(event)">Martijn vragen of het duidelijk is wanneer welke items geselcteerd/gefocust
+                zijn</a>
+
         </div>
     </div>
-    <div class="board-wrapper">
+    <div id="doing-board">
         <h1 class="board-title">Doing</h1>
 
-        <div class="board">
-            <div class="box" draggable="true"></div>
+        <div class="board"
+             ondragenter="dragenter(event)"
+             ondragleave="dragleave(event)"
+             ondrop="drop(event)"
+             ondragover="dragover(event)">
+            <a href="#" id="box-6" class="box" draggable="true" ondragstart="dragstart(event)"
+               ondragend="dragend(event)">Use test met Marijn uitvoeren</a>
+            <a href="#" id="box-7" class="box" draggable="true" ondragstart="dragstart(event)"
+               ondragend="dragend(event)">Drag and drop functionaliteit nog beter accessible maken voor Martijn</a>
         </div>
     </div>
-    <div class="board-wrapper">
+    <div id="verify-board">
         <h1 class="board-title">Verify</h1>
 
-        <div class="board">
+        <div class="board"
+             ondragenter="dragenter(event)"
+             ondragleave="dragleave(event)"
+             ondrop="drop(event)"
+             ondragover="dragover(event)">
+
+            <a href="#" id="box-8" class="box" draggable="true" ondragstart="dragstart(event)"
+               ondragend="dragend(event)">Martijn vragen of dit concept toepasselijk/naar wens is</a>
+
+            <a href="#" id="box-11" class="box" draggable="true" ondragstart="dragstart(event)"
+               ondragend="dragend(event)">Martijn vragen of de huidige knoppen voor navigeren naar wens zijn (nu WASD,
+                ArrowKeys, Numpad)</a>
+
+            <a href="#" id="box-12" class="box" draggable="true" ondragstart="dragstart(event)"
+               ondragend="dragend(event)">Martijn vragen of de huidige selecteerknoppen naar wens zijn (nu Enter, Numpad0, NumpadEnter)</a>
+
         </div>
     </div>
-    <div class="board-wrapper">
+    <div id="done-board">
         <h1 class="board-title">Done</h1>
 
-        <div class="board">
+        <div class="board"
+             ondragenter="dragenter(event)"
+             ondragleave="dragleave(event)"
+             ondrop="drop(event)"
+             ondragover="dragover(event)">
+
+            <a href="#" id="box-9" class="box" draggable="true" ondragstart="dragstart(event)"
+               ondragend="dragend(event)">Persoonlijke orientatie over Martijn doen</a>
+
+            <a href="#" id="box-10" class="box" draggable="true" ondragstart="dragstart(event)"
+               ondragend="dragend(event)">Drag and drop met de muis laten werken</a>
+
         </div>
     </div>
 
