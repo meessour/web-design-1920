@@ -10,7 +10,7 @@ This is a SCRUM board specifically designed for Marijn. Marijn is motor impaired
 ## Table of Contents
 1. [How to install](#How to install)
 2. [Use case about Marijn](#Use case about Marijn)
-3. [User Interface Design Principles](#User Interface Design Principles)
+3. [Design Principles](#Design Principles)
 4. [How does it work](#How does it work)
 5. [Feedback sessions](#Feedback sessions)
 6. [Wishlist](#Wishlist)
@@ -31,7 +31,18 @@ Marijn's Pc is a macbook and uses google chrome as web browser. He has a iPhone 
 
 Because Marijn is a developer himself, I decided to make him a SCRUM board. The agile working method is very common among developers and a SCRUM board is needed for this.
 
-## User Interface Design Principles
+## Design Principles
+Because I can't exactly empathize with Marijn's disability, I have to research what works best for him. I can't base my research on existing design principles because they are made for abled people, so I have to come up with something else. A good way of doing my research is by following [**The 4 Exlsusive design principles**](https://exclusive-design.vasilis.nl/). These priniples are: **Study situation**, **Ignore conventions**, **Prioritise identity**, **Add nonsense**.
+
+The first point is **studying the person in question** and how to app will be used by that person. In what situation is the app going to be used and how will it be navigated. The study about Marijn can be found here: [Use case about Marijn](#Use case about Marijn).
+
+The second point is **ignoring conventions**. The current conventions are made by, and this for designers, not specifically for disabled people. In this case certain principles should be dropped because they are not suitable for the person in question, Marijn. The tab key for example. Usually the user should be able to tab though every item, but for Marijn it is not preferred to use this key. So not making the tab functionality fully functional is not priority. A convention specifically meant for Marijn is a priority in this case, instead of the usual principles.
+
+The third point is **prioritising identity**. The app is made for Marijn, and the best way of designing it correctly is by involving the person in question. Not designing it **for** Marijn but designing it **with** Marijn. In order to accomplish this I plan on having a weekly meeting with Marijn to test **with** Marijn and actively observe.
+
+The fourth and last point is **adding nonsense**. Sometimes the best solution is not in hindsight and needs to be discovered. A good way of doing this is by adding a concept you wouldn't normally add to your app. There is a change that it actually is nonsense and is not practical, but maybe you find something that can be used as a functional concept. Because Marijn has a lack of muscle, navigating a PC can be tiring for him. Instead of manually navigating with the arrow keys, I plan on adding a functionality where the user doesn't even have to use the keys. My "nonsense" concept is an automatic navigation that changes focus every specified period of time.
+
+The app should should meet these specifications:
 * The user is able to set focus on an item using only the keyboard.
 * The user is able to move to an item on the right, left, above and below using only the keyboard.
 * The user can easily understand how the controls work, these should also be intuitive.
