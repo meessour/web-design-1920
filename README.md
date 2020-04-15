@@ -1,5 +1,5 @@
 # Accessible Drag and Drop
-This is a SCRUM board specifically designed for Marijn. Marijn is motor impaired and sometimes has trouble navigating websites. This app's core functionality is drag and dropping items from board to board. Normally this action is done by mouse, but with this scrum board you can also use your keyboard. For more info see: [User Scemario (Marijn)](#user-scemario-marijn)
+This is a SCRUM board specifically designed for Marijn. Marijn is motor impaired and sometimes has trouble navigating websites. This app's core functionality is drag and dropping items from board to board. Normally this action is done by mouse, but with this scrum board you can also use your keyboard. For more info see: [User Scenario (Marijn)](#user-scenario-marijn)
 
 ![Image](./docs/img/overview.png)
 
