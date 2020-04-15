@@ -1,5 +1,5 @@
 # Accessible Drag and Drop
-This is a SCRUM board specifically designed for Marijn. Marijn is motor impaired and sometimes has trouble navigating websites. This app's core functionality is drag and dropping items from board to board. Normally this action is done by mouse, but with this scrum board you can also use your keyboard. For more info see: [Use case about Marijn](#Use case about Marijn)
+This is a SCRUM board specifically designed for Marijn. Marijn is motor impaired and sometimes has trouble navigating websites. This app's core functionality is drag and dropping items from board to board. Normally this action is done by mouse, but with this scrum board you can also use your keyboard. For more info see: [User Scemario (Marijn)](#User-Scemario-(Marijn))
 
 ![Image](./docs/img/overview.png)
 
@@ -9,7 +9,7 @@ This is a SCRUM board specifically designed for Marijn. Marijn is motor impaired
 
 ## Table of Contents
 1. [How to install](#How-to-install)
-2. [Use case about Marijn](#Use-case-about-Marijn)
+2. [User Scemario (Marijn)](#User-Scemario-(Marijn))
 3. [Design Principles](#Design-Principles)
 4. [How does it work](#How-does-it-work)
 5. [Feedback sessions](#Feedback-sessions)
@@ -25,7 +25,7 @@ git clone https://github.com/meessour/web-design-1920.git
 
 **Step 2:** Open index.html in your browser
 
-## Use case about Marijn
+## User Scemario (Marijn)
 This app is specifically made for the wishes of Marijn. Marijn is a developer and father of two. People describe him as a lovely man and hard-working. He describes himself as skilled, critical and analytic. You listens to Metal music and can be found in moshpits. Marijn has a condition where his muscles are weakened and where he lacks muscle control, it is called motor impairment. Because of this he sometimes has trouble using certain features on websites because they are not made for him. This app is specifically made for him, down below research results about Marijn.
  
 Marijn's Pc is a macbook and uses google chrome as web browser. He has a iPhone X as phone which runs iOs. For commands on his PC (like CRTL + TAB) he uses sticky keys because he has trouble holding down multiple keys at the same time. He uses his left hand to use the keyboard. Prefers keys on the right side of the keyboard like numpad, shift, enter, spacebar and the arrow keys. During our first meeting he was unconsciously drawn to using the arrow keys for navigating. Using the arrow keys is therefore the primary way of navigating in this app. He uses his thumb for the trackpad.
@@ -35,7 +35,7 @@ Because Marijn is a developer himself, I decided to make him a SCRUM board. The 
 ## Design Principles
 Because I can't exactly empathize with Marijn's disability, I have to research what works best for him. I can't base my research on existing design principles because they are made for abled people, so I have to come up with something else. A good way of doing my research is by following [**The 4 Exclusive Design Principles (By Vasilis)**](https://exclusive-design.vasilis.nl/). These principles are: **Study situation**, **Ignore conventions**, **Prioritise identity**, **Add nonsense**.
 
-The first point is **studying the person in question** and how to app will be used by that person. In what situation is the app going to be used and how will it be navigated. The study about Marijn can be found here: [Use case about Marijn](#Use case about Marijn).
+The first point is **studying the person in question** and how to app will be used by that person. In what situation is the app going to be used and how will it be navigated. The study about Marijn can be found here: [User Scemario (Marijn)](#User-Scemario-(Marijn)).
 
 The second point is **ignoring conventions**. The current conventions are made by, and this for designers, not specifically for disabled people. In this case certain principles should be dropped because they are not suitable for the person in question, Marijn. The tab key for example. Usually the user should be able to tab though every item, but for Marijn it is not preferred to use this key. So not making the tab functionality fully functional is not priority. A convention specifically meant for Marijn is a priority in this case, instead of the usual principles.
 
