@@ -1,32 +1,20 @@
 :root {
-    --dark-1: #313131;
-    --dark-1-crystalline: rgba(49, 49, 49, 0.5);
-
-    --dark-2: #414141;
-    --dark-3: #525252;
-
-    --red: rgba(255, 84, 70, 1);
-    --white: rgba(238, 238, 238, 1);
-    --white-hover: rgba(205, 205, 205, 1);
-    --blue: rgba(0, 173, 181, 1);
-    --yellow: rgba(193, 194, 60, 1);
-    --green: rgba(47, 171, 99, 1);
-
-    --apple-color-green: rgb(40, 205, 65);
-    --apple-color-blue: rgb(0, 122, 255);
-    --apple-color-purple: rgb(175, 82, 222);
-    --apple-color-red: rgb(255, 59, 48);
-    --apple-color-orange: rgb(255, 149, 0);
-
-    --purple: #845EC2;
-    --blue-2: #2C73D2;
+    --white: #eeeeee;
+    --white-hover: #cdcdcd;
+    --red: #6F2232;
+    --red-light: #ff3b30;
+    --blue: #33445F;
+    --orange: #834125;
+    --grey: #4e4e50;
+    --black: #1A1A1D;
+    --green: #257f4a;
 }
 
 body {
     min-height: 100vh;
     font-family: 'Quicksand', sans-serif;
     color: var(--white);
-    background-color: var(--white);
+    background-color: var(--black);
     margin: 0;
 }
 
@@ -48,7 +36,7 @@ body {
     height: fit-content;
 
     background-color: var(--white);
-    color: var(--dark-1);
+    color: var(--black);
 
     text-align: start;
     text-decoration: none;
@@ -62,19 +50,7 @@ body {
 
 .box:focus {
     margin: 0px 4px;
-    animation: color-focus 2.5s infinite linear;
-}
-
-@keyframes color-focus {
-    0% {
-        border: solid 6px var(--red);
-    }
-    50% {
-        border: solid 6px var(--blue);
-    }
-    100% {
-        border: solid 6px var(--red);
-    }
+    border: solid 6px var(--red-light);
 }
 
 .box-skeleton {
@@ -149,28 +125,28 @@ body {
 }
 
 .legend-color-1 {
-    background-color: var(--apple-color-blue);
+    background-color: var(--grey);
 }
 
 .legend-color-2 {
-    background-color: var(--apple-color-red);
+    background-color: var(--blue);
 }
 
 .legend-color-3 {
-    background-color: var(--apple-color-green);
+    background-color: var(--red);
 }
 
 .legend-color-4 {
-    background-color: var(--apple-color-purple);
+    background-color: var(--orange);
 }
 
 .legend-color-5 {
-    background-color: var(--apple-color-orange);
+    background-color: var(--green);
 }
 
 .navigation-image {
-    height: 150px;
-    width: 550px;
+    height: 143px;
+    width: 491px;
     margin: 0;
 }
 
@@ -190,7 +166,11 @@ body {
 }
 
 .board {
-    background-color: var(--dark-1);
+    background-color: var(--black);
+
+    border-color: var(--black) var(--white-hover) var(--white-hover) var(--white-hover);
+    border-style: solid solid solid solid;
+    border-width: 5px 2px 2px 2px;
 
     padding-top: 4px;
     padding-bottom: 4px;
@@ -205,7 +185,9 @@ body {
 }
 
 #todo-board, #doing-board, #verify-board, #done-board, .explanation-board {
-    background-color: var(--dark-1);
+    background-color: var(--black);
+
+    /*border: solid var(--white-hover);*/
 
     flex: 1;
     text-align: center;
@@ -224,59 +206,41 @@ body {
     flex-direction: row;
 
     overflow: hidden;
+
+    border: solid 2px var(--white);
 }
 
 #todo-board {
-    background-color: var(--red);
+    background-color: var(--grey);
     margin-right: 0;
 }
 
 #doing-board {
-    background-color: var(--blue);
+    background-color: var(--orange);
     margin-right: 0;
 }
 
 #verify-board {
-    background-color: var(--yellow);
+    background-color: var(--red);
     margin-right: 0;
 }
 
 #done-board {
-    background-color: var(--green);
-}
-
-.hovered {
-    /*background-color: var(--dark-1-crystalline);*/
-    background-color: rgba(49, 49, 49, 0.5);
-}
-
-.lifted {
-    /*border: solid 2px var(--dark-1);*/
-    /*border-radius: 2px; !important;*/
-    /*animation: color-focus 2.5s infinite linear;*/
-    margin: 4px 4px !important;
-    border: solid 2px var(--blue);
-    animation: none !important;
-
-    box-shadow: -7px 7px 5px 0px var(--red);
-
-    left: 12px;
-    bottom: 5px;
-}
-
-.doing-border {
-    border: dashed 0 3px 3px 3px var(--blue);
-}
-
-.verify-border {
-    border: dashed 3px var(--yellow);
-}
-
-.done-border {
-    border: dashed 3px var(--green);
+    background-color: var(--blue);
 }
 
 .items-container {
     display: flex;
     flex-direction: column;
+}
+
+.hovered {
+    background-color: rgba(49, 49, 49, 0.5);
+}
+
+.lifted {
+    margin-top: 12px !important;
+    margin-bottom: 12px !important;
+
+    box-shadow: 0 0 20px 10px var(--red-light);
 }
