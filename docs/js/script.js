@@ -2,7 +2,7 @@ const navigateLeftKeys = ["ArrowLeft", "KeyH"];
 const navigateUpKeys = ["ArrowUp", "KeyK"];
 const navigateRightKeys = ["ArrowRight", "KeyL"];
 const navigateDownKeys = ["ArrowDown", "KeyJ"];
-const grabItemKeys = ["Enter", "Space"];
+const grabItemKeys = ["Enter", "Space", "NumpadEnter"];
 
 // Has to be in chronological order
 const boardIds = ["todo-board", "doing-board", "verify-board", "done-board"];
@@ -31,7 +31,7 @@ document.addEventListener('focusin', function (e) {
         const currentBoardId = e.target.parentNode.parentNode.id;
 
         currentFocusedBoardNode = e.target.parentNode;
-        console.log("currentFocusedBoardNode", currentFocusedBoardNode)
+        console.log("currentFocusedBoardNode", currentFocusedBoardNode);
         currentFocusedItemNode = e.target;
 
         if (boardIds.includes(currentBoardId))
@@ -152,13 +152,6 @@ function setFocusChronological(choices) {
     }
 }
 
-function validFocusTarget(target) {
-    if (target.parentNode.parentNode.id === "todo-board" ||
-        target.parentNode.parentNode.id === "doing-board" ||
-        target.parentNode.parentNode.id === "verify-board" ||
-        target.parentNode.parentNode.id === "done-board")
-        return true
-}
 
 function setInitialFocus() {
     const firstTabbableElement = document.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])')[0];
@@ -192,14 +185,10 @@ function moveItemDown() {
     const nextItem = currentLiftedItemNode.nextElementSibling;
 
     if (nextItem)
+        // https://stackoverflow.com/a/4793630/11119707
         currentFocusedBoardNode.insertBefore(currentLiftedItemNode, nextItem.nextElementSibling);
 
     currentLiftedItemNode.focus();
-}
-
-function swapItemsInList(list, position1, position2) {
-    // From: https://stackoverflow.com/a/872317/11119707
-    return [list[position1], list[position2]] = [list[position2], list[position1]];
 }
 
 function moveItemToRight() {
