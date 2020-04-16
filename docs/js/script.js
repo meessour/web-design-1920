@@ -1,10 +1,10 @@
-const navigateLeftKeys = ["ArrowLeft", "KeyA", "Numpad4"];
-const navigateUpKeys = ["ArrowUp", "KeyW", "Numpad8"];
-const navigateRightKeys = ["ArrowRight", "KeyD", "Numpad6"];
-const navigateDownKeys = ["ArrowDown", "KeyS", "Numpad2"];
-const grabItemKeys = ["Enter", "Space", "Numpad0", "Numpad5", "NumpadEnter"];
-const cancelActionKeys = ["Escape", "NumpadSubtract", "Backspace"];
+const navigateLeftKeys = ["ArrowLeft", "KeyH"];
+const navigateUpKeys = ["ArrowUp", "KeyK"];
+const navigateRightKeys = ["ArrowRight", "KeyL"];
+const navigateDownKeys = ["ArrowDown", "KeyJ"];
+const grabItemKeys = ["Enter", "Space"];
 
+// Has to be in chronological order
 const boardIds = ["todo-board", "doing-board", "verify-board", "done-board"];
 
 let currentFocusedBoardId;
@@ -12,7 +12,6 @@ let currentFocusedBoardNode;
 let currentFocusedItemNode;
 
 let currentLiftedItemNode;
-let currentHoveredBoardNode;
 
 const todoBoardNode = document.getElementById("todo-board").getElementsByClassName("board")[0];
 const doingBoardNode = document.getElementById("doing-board").getElementsByClassName("board")[0];
@@ -58,21 +57,16 @@ document.addEventListener("keydown", event => {
     // Grab
     if (grabItemKeys.includes(event.code) || currentLiftedItemNode) {
         if (grabItemKeys.includes(event.code) && currentLiftedItemNode) {
-            console.log("Drop")
             dropItem();
         } else if (navigateRightKeys.includes(event.code) && currentLiftedItemNode) {
-            console.log("over board on right")
-            hoverItemOverBoardOnRight();
+            moveItemToRight();
         } else if (navigateLeftKeys.includes(event.code) && currentLiftedItemNode) {
-            console.log("over board on left")
-
-            hoverItemOverBoardOnLeft();
-        } else if (cancelActionKeys.includes(event.code) && currentLiftedItemNode) {
-            console.log("Cancel")
-            // returnItem();
+            moveItemToLeft();
+        } else if (navigateDownKeys.includes(event.code) && currentLiftedItemNode) {
+            moveItemDown();
+        } else if (navigateUpKeys.includes(event.code) && currentLiftedItemNode) {
+            moveItemUp();
         } else if (grabItemKeys.includes(event.code)) {
-            console.log("Lift");
-
             grabItem();
         }
 
@@ -173,92 +167,98 @@ function setInitialFocus() {
 }
 
 function grabItem() {
-    console.log("Current board", currentFocusedBoardNode.parentNode.id)
     currentLiftedItemNode = currentFocusedItemNode;
-    currentHoveredBoardNode = currentFocusedBoardNode;
 
     currentLiftedItemNode.classList.add("lifted");
-
-    hoverItemOverCurrentBoard();
 }
 
 function dropItem() {
-    currentHoveredBoardNode.appendChild(currentLiftedItemNode);
-    currentLiftedItemNode.focus();
+    if (currentLiftedItemNode)
+        currentLiftedItemNode.classList.remove("lifted");
 
-    removeAllBoardStyling();
-    currentLiftedItemNode.classList.remove("lifted");
-
-    currentFocusedBoardNode = currentHoveredBoardNode;
-    currentFocusedBoardId = currentHoveredBoardNode.parentNode.id;
-
-    currentHoveredBoardNode = undefined;
     currentLiftedItemNode = undefined;
 }
 
-function hoverItemOverCurrentBoard() {
-    removeAllBoardStyling();
+function moveItemUp() {
+    const previousItem = currentLiftedItemNode.previousElementSibling;
 
-    currentHoveredBoardNode.classList.add("hovered");
+    if (previousItem)
+        currentFocusedBoardNode.insertBefore(currentLiftedItemNode, previousItem);
+
+    currentLiftedItemNode.focus();
 }
 
-function hoverItemOverBoardOnRight() {
-    const selectedBoardNodePosition = boardNodes.indexOf(currentHoveredBoardNode);
+function moveItemDown() {
+    const nextItem = currentLiftedItemNode.nextElementSibling;
 
-    removeAllBoardStyling();
+    if (nextItem)
+        currentFocusedBoardNode.insertBefore(currentLiftedItemNode, nextItem.nextElementSibling);
+
+    currentLiftedItemNode.focus();
+}
+
+function swapItemsInList(list, position1, position2) {
+    // From: https://stackoverflow.com/a/872317/11119707
+    return [list[position1], list[position2]] = [list[position2], list[position1]];
+}
+
+function moveItemToRight() {
+    const selectedBoardNodePosition = boardNodes.indexOf(currentFocusedBoardNode);
 
     selectedBoardNodePosition === boardNodes.length - 1 ?
-        currentHoveredBoardNode = boardNodes[0] :
-        currentHoveredBoardNode = boardNodes[selectedBoardNodePosition + 1];
+        currentFocusedBoardNode = boardNodes[0] :
+        currentFocusedBoardNode = boardNodes[selectedBoardNodePosition + 1];
 
-    currentHoveredBoardNode.classList.add("hovered");
+    currentFocusedBoardNode.appendChild(currentLiftedItemNode);
+    currentLiftedItemNode.focus();
 }
 
-function hoverItemOverBoardOnLeft() {
-    const selectedBoardNodePosition = boardNodes.indexOf(currentHoveredBoardNode);
-
-    removeAllBoardStyling();
+function moveItemToLeft() {
+    const selectedBoardNodePosition = boardNodes.indexOf(currentFocusedBoardNode);
 
     selectedBoardNodePosition === 0 ?
-        currentHoveredBoardNode = boardNodes[(boardNodes.length - 1)] :
-        currentHoveredBoardNode = boardNodes[selectedBoardNodePosition - 1];
+        currentFocusedBoardNode = boardNodes[(boardNodes.length - 1)] :
+        currentFocusedBoardNode = boardNodes[selectedBoardNodePosition - 1];
 
-    currentHoveredBoardNode.classList.add("hovered");
+    currentFocusedBoardNode.appendChild(currentLiftedItemNode);
+    currentLiftedItemNode.focus();
 }
 
-function removeAllBoardStyling() {
-    boardNodes.forEach(boardNode => boardNode.classList.remove("hovered"));
-}
-
-// HTML_Drag_and_Drop_API - V Below here V
+// HTML_Drag_and_Drop_API with mouse - V Below here V
 
 function dragstart(ev) {
+    dropItem();
     ev.dataTransfer.setData('application/drag-and-drop', ev.target.id);
 
     setTimeout(() => ev.target.closest('.box').className = "box-skeleton", 0);
 }
 
 function dragend(ev) {
+    dropItem();
     setTimeout(() => ev.target.closest('.box-skeleton').className = "box", 0);
 }
 
 function dragover(ev) {
+    dropItem();
     ev.preventDefault();
 
     ev.target.closest('.board').classList.add("hovered");
 }
 
 function dragenter(ev) {
+    dropItem();
     ev.preventDefault();
 
     ev.target.closest('.board').classList.add("hovered");
 }
 
 function dragleave(ev) {
+    dropItem();
     ev.target.closest('.board').classList.remove("hovered");
 }
 
 function drop(ev) {
+    dropItem();
     ev.preventDefault();
 
     ev.target.closest('.board').classList.remove("hovered");

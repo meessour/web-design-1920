@@ -1,8 +1,8 @@
 :root {
     --white: #eeeeee;
-    --white-hover: #cdcdcd;
+    --white-hover: #A4B2B9;
     --red: #6F2232;
-    --red-light: #ff3b30;
+    --selected: #39D39B;
     --blue: #33445F;
     --orange: #834125;
     --grey: #4e4e50;
@@ -49,8 +49,8 @@ body {
 }
 
 .box:focus {
-    margin: 0px 4px;
-    border: solid 6px var(--red-light);
+    margin: 0 6px;
+    border: solid 6px var(--selected);
 }
 
 .box-skeleton {
@@ -81,9 +81,22 @@ body {
 
 .control-legend-container {
     width: fit-content;
-    margin: 0 8px;
+    margin: 0 -6px 0 8px;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.control-legend-container-arrows {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+}
+
+.control-legend-container-other {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
 }
 
 .navigation-image-container {
@@ -106,9 +119,8 @@ body {
     align-items: center;
 }
 
-.legend-text {
-    margin: 0;
-    white-space: nowrap;
+.grab-legend-container{
+    width: 100%;
 }
 
 .legend-color-1,
@@ -117,7 +129,10 @@ body {
 .legend-color-4,
 .legend-color-5 {
     height: 25px;
-    width: 25px;
+    width: 35px;
+
+    font-size: large;
+    white-space: nowrap;
 
     margin-right: 6px;
 
@@ -142,12 +157,17 @@ body {
 
 .legend-color-5 {
     background-color: var(--green);
+
+    margin-top: 6px;
+    padding: 0 12px;
+    width: 100%;
 }
 
 .navigation-image {
-    height: 143px;
-    width: 491px;
+    height: 115px;
+    width: auto;
     margin: 0;
+    border-radius: 6px;
 }
 
 .board-title {
@@ -157,7 +177,7 @@ body {
     font-size: 48px;
 }
 
-.board-title, .legend-text, .navigation-image {
+.board-title, .navigation-image {
     /*Not able to select any of the text*/
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */
@@ -168,11 +188,12 @@ body {
 .board {
     background-color: var(--black);
 
-    border-color: var(--black) var(--white-hover) var(--white-hover) var(--white-hover);
-    border-style: solid solid solid solid;
-    border-width: 5px 2px 2px 2px;
+    border-color: var(--black) #A4B2B9 #A4B2B9 #A4B2B9;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 0 0 6px 6px;
 
-    padding-top: 4px;
+    padding-top: 2px;
     padding-bottom: 4px;
 
     height: 100%;
@@ -187,8 +208,6 @@ body {
 #todo-board, #doing-board, #verify-board, #done-board, .explanation-board {
     background-color: var(--black);
 
-    /*border: solid var(--white-hover);*/
-
     flex: 1;
     text-align: center;
     margin: 8px;
@@ -199,15 +218,18 @@ body {
 }
 
 .explanation-board {
-    max-height: 150px;
+    max-height: 115px;
     margin-top: 0;
     padding: 6px;
+    width: fit-content;
 
     flex-direction: row;
 
     overflow: hidden;
 
-    border: solid 2px var(--white);
+    border: #A4B2B9 solid 2px ;
+
+    border-radius: 6px;
 }
 
 #todo-board {
@@ -242,5 +264,5 @@ body {
     margin-top: 12px !important;
     margin-bottom: 12px !important;
 
-    box-shadow: 0 0 20px 10px var(--red-light);
+    box-shadow: 0 0 20px 10px var(--selected);
 }
