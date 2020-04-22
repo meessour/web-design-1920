@@ -4,6 +4,7 @@ const navigateRightKeys = ["ArrowRight", "KeyL"];
 const navigateDownKeys = ["ArrowDown", "KeyJ"];
 const grabItemKeys = ["Enter", "Space", "NumpadEnter"];
 const randomKeys = ["KeyR"];
+const toggleVisibilityGuide = ["?"];
 
 // Has to be in chronological order
 const boardIds = ["todo-board", "doing-board", "verify-board", "done-board"];
@@ -26,13 +27,26 @@ let doingBoardFirstNodeChild = doingBoardNode.firstElementChild;
 let verifyBoardFirstNodeChild = verifyBoardNode.firstElementChild;
 let doneBoardFirstNodeChild = doneBoardNode.firstElementChild;
 
+// Init is fired at the bottom of this file
+function init() {
+    setInitialFocus();
+    setFirstNodeChildForBoards();
+
+    setTimeout(function () {
+        // Check if the DOM element has been hidden already. If not, hide automatically after 5sec.
+        if (!document.getElementById("explanation-board").getAttribute("style")) {
+            hideGuide()
+        }
+    }, 5000);
+
+}
+
 // var box1 = document.getElementById("demo") = "Hello World";
 document.addEventListener('focusin', function (e) {
     try {
         const currentBoardId = e.target.parentNode.parentNode.id;
 
         currentFocusedBoardNode = e.target.parentNode;
-        console.log("currentFocusedBoardNode", currentFocusedBoardNode);
         currentFocusedItemNode = e.target;
 
         if (boardIds.includes(currentBoardId))
@@ -42,12 +56,7 @@ document.addEventListener('focusin', function (e) {
     }
 });
 
-setInitialFocus();
-setFirstNodeChildForBoards();
-
 document.addEventListener("keydown", event => {
-    console.log("event.code", event.code);
-
     // Checks for a bug, not sure what it does
     if (event.isComposing || event.keyCode === 229)
         return;
@@ -95,6 +104,10 @@ document.addEventListener("keydown", event => {
     // Put item to random position on board
     else if (randomKeys.includes(event.code)) {
         moveToRandom();
+    }
+    // Put item to random position on board
+    else if (toggleVisibilityGuide.includes(event.key)) {
+        toggleGuide()
     }
 });
 
@@ -185,8 +198,13 @@ function dropItem() {
 function moveItemUp() {
     const previousItem = currentLiftedItemNode.previousElementSibling;
 
-    if (previousItem)
+    if (previousItem) {
         currentFocusedBoardNode.insertBefore(currentLiftedItemNode, previousItem);
+    }
+    // A check if another element is present in the current board
+    else if (currentLiftedItemNode.nextElementSibling) {
+        currentFocusedBoardNode.appendChild(currentLiftedItemNode)
+    }
 
     currentLiftedItemNode.focus();
 }
@@ -194,9 +212,14 @@ function moveItemUp() {
 function moveItemDown() {
     const nextItem = currentLiftedItemNode.nextElementSibling;
 
-    if (nextItem)
+    if (nextItem) {
         // https://stackoverflow.com/a/4793630/11119707
         currentFocusedBoardNode.insertBefore(currentLiftedItemNode, nextItem.nextElementSibling);
+    }
+    // A check if another element is present in the current board
+    else if (currentLiftedItemNode.previousElementSibling) {
+        currentFocusedBoardNode.insertBefore(currentLiftedItemNode, currentFocusedBoardNode.firstChild);
+    }
 
     currentLiftedItemNode.focus();
 }
@@ -280,3 +303,22 @@ function drop(ev) {
         ev.target.closest('.board').appendChild(document.getElementById(item));
     }
 }
+
+function hideGuide() {
+    document.getElementById("explanation-board").style.animation = "hideGuideElementVisibility 2s forwards";
+}
+
+function showGuide() {
+    document.getElementById("explanation-board").style.animation = "showGuideElementVisibility 2s forwards";
+}
+
+function toggleGuide() {
+    if (document.getElementById("explanation-board").getAttribute("style") &&
+        document.getElementById("explanation-board").getAttribute("style").indexOf("animation: 2s ease 0s 1 normal forwards running hideGuideElementVisibility") !== -1) {
+        showGuide()
+    } else {
+        hideGuide();
+    }
+}
+
+init();

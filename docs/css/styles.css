@@ -149,6 +149,7 @@ body {
 
     border-radius: 6px;
 }
+
 .legend-color-1,
 .legend-color-2,
 .legend-color-3,
@@ -213,7 +214,7 @@ body {
     overflow: hidden;
 }
 
-#todo-board, #doing-board, #verify-board, #done-board, .explanation-board {
+#todo-board, #doing-board, #verify-board, #done-board, #explanation-board {
     background-color: var(--black);
 
     flex: 1;
@@ -225,7 +226,7 @@ body {
     border-radius: 6px;
 }
 
-.explanation-board {
+#explanation-board {
     max-height: 115px;
     min-height: 115px;
     margin-top: 0;
@@ -239,6 +240,40 @@ body {
     border: #A4B2B9 solid 2px;
 
     border-radius: 6px;
+}
+
+@keyframes hideGuideElementVisibility {
+    from {
+        max-height: 115px;
+        min-height: 115px;
+        border-width: 2px;
+        padding: 6px;
+        margin-bottom: 6px;
+    }
+    to {
+        max-height: 0;
+        min-height: 0;
+        border-width: 0;
+        padding: 0;
+        margin-bottom: -4px;
+    }
+}
+
+@keyframes showGuideElementVisibility {
+    from {
+        max-height: 0;
+        min-height: 0;
+        border-width: 0;
+        padding: 0;
+        margin-bottom: -4px;
+    }
+    to {
+        max-height: 115px;
+        min-height: 115px;
+        border-width: 2px;
+        padding: 6px;
+        margin-bottom: 6px;
+    }
 }
 
 #todo-board {
