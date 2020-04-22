@@ -104,7 +104,7 @@ In order to move an item, Marijn must first set focus on an item. When entering 
 <details>  
     <summary>Week 1</summary>
     
-#### Questions
+#### Questions and answers
 
 * Would you like to see a different set of keybindings?
     * Yes, I'd like to see the key combination HJKL. It is a classic way of navigating via keyboard"
@@ -137,21 +137,40 @@ Initially I wanted to enlarge the size of fonts and components in the prototype,
 <details>  
     <summary>Week 2</summary>
     
-#### Questions
+#### Questions and answers
 
 * How do you like the new color scheme of the app?
+    - I think it looks good
+    
+* What do you think of the new random button?
+    - I think It's a fun feature  
+    
 * Is there anything you would change for the current design?
+    - No, it looks good with the new color palette 
+
 * Was/is it clear what all the controls are?
+    - Yes, the controls are clear.
+    
 * Last week you told me that you didn't like the shifting colors on focused items, is the current implementation to your liking?
+    - Yes, it is much less distracting now.
+    
 * Last week you told me that you want to see a functionality to move items up and down in a board, is the current implementation to your liking?
-* Are there any colors or visual aspects that are not to your liking?
+    - Yes, but items do not wrap around when I reach the bottom/top. It does wrap around when I am not holding an item. I would like to see consistency in this feature.
+    
 * What do you think of the favicon/app icon?
-
-#### Improvements for V2 of the prototype
-
-
+    - It is fun.
+    
 #### Extra things I observed
 
+Concerning the random key feature; Marijn said he had to try a few times to get an item to the right board, but he thinks the feature is fun. Also, the first 30 seconds I didn't have my microphone working and he  quickly found out, by himself, how to random key feature works. This means he found the controls by himself and understands what it does without having to explain it. At last, he had to laugh when he tried the feature for the first time, i'm happy he did.
+
+Marijn told me he liked the small guide on the bottom of the screen, but he would've preferred if the menu hides it self after a few seconds. And be able to show the menu again with the keybind "SHIFT + FORWARD SLASH" (question mark).
+
+#### Improvements for V3 of the prototype
+
+* Be able to wrap a grabbed item around when moving up and down.
+* Let the board hide it self after a period of time.
+* Be able to hide/show the control guide with the command: SHIFT + FORWARD SLASH.
 
 </details>
 
