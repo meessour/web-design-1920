@@ -3,6 +3,7 @@ const navigateUpKeys = ["ArrowUp", "KeyK"];
 const navigateRightKeys = ["ArrowRight", "KeyL"];
 const navigateDownKeys = ["ArrowDown", "KeyJ"];
 const grabItemKeys = ["Enter", "Space", "NumpadEnter"];
+const randomKeys = ["KeyR"];
 
 // Has to be in chronological order
 const boardIds = ["todo-board", "doing-board", "verify-board", "done-board"];
@@ -66,25 +67,33 @@ document.addEventListener("keydown", event => {
             moveItemDown();
         } else if (navigateUpKeys.includes(event.code) && currentLiftedItemNode) {
             moveItemUp();
+        } else if (randomKeys.includes(event.code) && currentLiftedItemNode) {
+            moveToRandom();
+            dropItem();
         } else if (grabItemKeys.includes(event.code)) {
             grabItem();
         }
 
-        // Navigate left
-    } else if (navigateLeftKeys.includes(event.code)) {
+    }
+    // Navigate left
+    else if (navigateLeftKeys.includes(event.code)) {
         navigateToNodeOnLeft();
-
-        // Navigate right
-    } else if (navigateRightKeys.includes(event.code)) {
+    }
+    // Navigate right
+    else if (navigateRightKeys.includes(event.code)) {
         navigateToNodeOnRight();
-
-        // Navigate down
-    } else if (navigateDownKeys.includes(event.code)) {
+    }
+    // Navigate down
+    else if (navigateDownKeys.includes(event.code)) {
         navigateToNodeBelow();
-
-        // Navigate up
-    } else if (navigateUpKeys.includes(event.code)) {
+    }
+    // Navigate up
+    else if (navigateUpKeys.includes(event.code)) {
         navigateToNodeAbove();
+    }
+    // Put item to random position on board
+    else if (randomKeys.includes(event.code)) {
+        moveToRandom();
     }
 });
 
@@ -211,6 +220,18 @@ function moveItemToLeft() {
 
     currentFocusedBoardNode.appendChild(currentLiftedItemNode);
     currentLiftedItemNode.focus();
+}
+
+function moveToRandom() {
+    let randomBoardNode;
+
+    do {
+        // Get a random board node. Repeat if board is the same as the current selected board
+        randomBoardNode = boardNodes[Math.floor(Math.random() * boardNodes.length)];
+    } while (randomBoardNode === currentFocusedBoardNode);
+
+    randomBoardNode.appendChild(currentFocusedItemNode);
+    currentFocusedItemNode.focus();
 }
 
 // HTML_Drag_and_Drop_API with mouse - V Below here V

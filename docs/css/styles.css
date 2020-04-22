@@ -12,11 +12,22 @@
 
 body {
     min-height: 100vh;
+    max-height: 100vh;
     font-family: 'Quicksand', sans-serif;
     color: var(--white);
     background-color: var(--black);
     margin: 0;
 }
+
+/* No text on the whole site can be selected, this is for error prevention */
+* {
+    /*Not able to select any of the text*/
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
 
 .all-boards-wrapper {
     height: 100%;
@@ -119,7 +130,7 @@ body {
     align-items: center;
 }
 
-.grab-legend-container{
+.grab-legend-container {
     width: 100%;
 }
 
@@ -177,14 +188,6 @@ body {
     font-size: 48px;
 }
 
-.board-title, .navigation-image {
-    /*Not able to select any of the text*/
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+/Edge */
-    user-select: none; /* Standard */
-}
-
 .board {
     background-color: var(--black);
 
@@ -219,6 +222,7 @@ body {
 
 .explanation-board {
     max-height: 115px;
+    min-height: 115px;
     margin-top: 0;
     padding: 6px;
     width: fit-content;
@@ -227,7 +231,7 @@ body {
 
     overflow: hidden;
 
-    border: #A4B2B9 solid 2px ;
+    border: #A4B2B9 solid 2px;
 
     border-radius: 6px;
 }
@@ -265,4 +269,11 @@ body {
     margin-bottom: 12px !important;
 
     box-shadow: 0 0 20px 10px var(--selected);
+}
+
+#random-key-image {
+    height: 35px;
+    border-radius: 6px;
+    border: solid 1px var(--selected);
+    margin-right: 6px;
 }
