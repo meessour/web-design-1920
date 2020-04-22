@@ -149,13 +149,19 @@ body {
 
     border-radius: 6px;
 }
+.legend-color-1,
+.legend-color-2,
+.legend-color-3,
+.legend-color-4 {
+    height: 28px;
+}
 
 .legend-color-1 {
     background-color: var(--grey);
 }
 
 .legend-color-2 {
-    background-color: var(--blue);
+    background-color: var(--orange);
 }
 
 .legend-color-3 {
@@ -163,13 +169,12 @@ body {
 }
 
 .legend-color-4 {
-    background-color: var(--orange);
+    background-color: var(--blue);
 }
 
 .legend-color-5 {
     background-color: var(--green);
 
-    margin-top: 6px;
     padding: 0 12px;
     width: 100%;
 }
