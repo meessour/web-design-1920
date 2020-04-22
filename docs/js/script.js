@@ -69,11 +69,12 @@ document.addEventListener("keydown", event => {
             moveItemUp();
         } else if (randomKeys.includes(event.code) && currentLiftedItemNode) {
             moveToRandom();
+
+            // Drop the item once it is placed somewhere randomly
             dropItem();
         } else if (grabItemKeys.includes(event.code)) {
             grabItem();
         }
-
     }
     // Navigate left
     else if (navigateLeftKeys.includes(event.code)) {

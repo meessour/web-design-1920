@@ -134,6 +134,28 @@ Initially I wanted to enlarge the size of fonts and components in the prototype,
 
 </details>
 
+<details>  
+    <summary>Week 2</summary>
+    
+#### Questions
+
+* How do you like the new color scheme of the app?
+* Is there anything you would change for the current design?
+* Was/is it clear what all the controls are?
+* Last week you told me that you didn't like the shifting colors on focused items, is the current implementation to your liking?
+* Last week you told me that you want to see a functionality to move items up and down in a board, is the current implementation to your liking?
+* Are there any colors or visual aspects that are not to your liking?
+* What do you think of the favicon/app icon?
+
+#### Improvements for V2 of the prototype
+
+
+#### Extra things I observed
+
+
+</details>
+
+
 ## Changes from V1 to V2
 
 Every change made here is from the feedback I got during week 1. Go to [Feedback sessions](#Feedback-sessions) week 1 to see the results of this test
@@ -205,6 +227,20 @@ Items can now be moved up and down in a board:
 I added a favicon with a punk/rock style as an "easteregg"
 
 ![Image](docs/img/punk.png)
+
+#### (Nonsense) Added functionality to randomly place an item
+By pressing one of the random key (bound to the key: "KeyR"), you can place the currently selected/grabbed item on a random board. A random board node is generated from a predefined list. If the randomly generated board node is the current focused board node, then another random board is generated. Eventually the selected/grabbed item is moved to that board.
+
+```javascript
+let randomBoardNode;
+
+do {
+    // Get a random board node. Repeat if board is the same as the current selected board
+    randomBoardNode = boardNodes[Math.floor(Math.random() * boardNodes.length)];
+} while (randomBoardNode === currentFocusedBoardNode);
+```
+
+![Image](docs/img/randomKeyGuide.png)
 
 
 ## Wishlist
