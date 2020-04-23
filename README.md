@@ -141,22 +141,16 @@ Initially I wanted to enlarge the size of fonts and components in the prototype,
 
 * How do you like the new color scheme of the app?
     - I think it looks good
-    
 * What do you think of the new random button?
     - I think It's a fun feature  
-    
 * Is there anything you would change for the current design?
     - No, it looks good with the new color palette 
-
 * Was/is it clear what all the controls are?
     - Yes, the controls are clear.
-    
 * Last week you told me that you didn't like the shifting colors on focused items, is the current implementation to your liking?
     - Yes, it is much less distracting now.
-    
 * Last week you told me that you want to see a functionality to move items up and down in a board, is the current implementation to your liking?
     - Yes, but items do not wrap around when I reach the bottom/top. It does wrap around when I am not holding an item. I would like to see consistency in this feature.
-    
 * What do you think of the favicon/app icon?
     - It is fun.
     
@@ -175,7 +169,11 @@ Marijn told me he liked the small guide on the bottom of the screen, but he woul
 </details>
 
 
-## Changes from V1 to V2
+## Changes For new version
+
+<details>  
+    <summary>V1 - V2</summary>
+
 
 Every change made here is from the feedback I got during week 1. Go to [Feedback sessions](#Feedback-sessions) week 1 to see the results of this test
     
@@ -260,6 +258,43 @@ do {
 ```
 
 ![Image](docs/img/randomKeyGuide.png)
+
+</details>  
+
+<details>  
+    <summary>V2 - V3</summary>
+
+## Changes from V2 to V3
+
+Every change made here is from the feedback I got during week 2. Go to [Feedback sessions](#Feedback-sessions) week 2 to see the results of this test
+
+#### Keyboard hide/show feature
+Marijn requested to hide the keyboard after a while. He said that he knew the controls already and it was unnecessary to keep on the screen. Now the "guide" hide itself after 5 seconds.
+
+```javascript
+setTimeout(function () {
+document.getElementById("explanation-board").style.animation = "hideGuideElementVisibility 2s forwards";
+
+}, 5000);
+```
+
+To show the guide again (or to hide it), the question mark needs to be clicked. This can be performed by pressing "SHIFT + /". I asked Marijn what keybinding he would like, and this is what he came up with.
+
+![Image](docs/img/guide-hide.gif)
+
+#### Wrap items around on same board
+Previously it wasn't possible to wrap items around vertically while holding an item. Now this is possible. I need to do a check if another item is present in the board, otherwise there is nothing to wrap around. This is the code for checking that:
+
+```javascript
+// A check if another element is present in the current board
+else if (currentLiftedItemNode.nextElementSibling) {
+    currentFocusedBoardNode.appendChild(currentLiftedItemNode)
+}
+```
+
+![Image](docs/img/wrap-aounrd.gif)
+
+</details>  
 
 
 ## Wishlist
