@@ -61,6 +61,11 @@ document.addEventListener("keydown", event => {
     if (event.isComposing || event.keyCode === 229)
         return;
 
+    console.log("event.keyCode:", event.keyCode)
+    console.log("event.code:", event.code)
+    console.log("event.key:", event.key)
+    console.log("_____")
+
     // Set the first item nodes for every board
     setFirstNodeChildForBoards();
 
