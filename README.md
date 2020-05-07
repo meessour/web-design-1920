@@ -296,6 +296,21 @@ else if (currentLiftedItemNode.nextElementSibling) {
 
 </details>  
 
+## Do's and don't during testing with Marijn
+One of the most important things with testing with Marijn, is observing how he uses his laptop/PC. The way he likes to use the keyboard (for example), isn't always verbally communicated. Because of this it is really important to be physically with him or have someone there to observe him for the tester (what Vasilis did). 
+
+Because Marijn has trouble speaking, it is really important to not interrupt him while he is talking. It is also really important to listen carefully what he is saying, verbally and non-verbally. You can pick up his opinion about something in the way his voice changes (acknowledgement in higher pitched voice for example).
+
+What I learned from Vasilis is that he doesn't like it when things are unprepared. He became grumpy after the students not being prepared last year. This is why I decided to have questions prepared and a strategy.
+
+#### Do's
+* Observe the way he uses his laptop/pc
+* Be prepared with questions
+* Listen carefully (non-verbally too) in order to truly understand him
+
+#### Don'ts
+* Don't interrupt Marijn when he is talking
+* Be unprepared or not aware what you are talking about
 
 ## Wishlist
 * Cancel picking up an item and return to state it was in before
