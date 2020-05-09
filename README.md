@@ -74,7 +74,7 @@ This is what the website looks like:
 
 </details>  
 
-There are four board where an item can be placed. These board are To-Do, doing, Verify and Done. These board are usually used with SCRUM. 
+There are four boards where an item can be placed. These board are To-Do, doing, Verify and Done. These board are usually used with SCRUM. 
 
 At the bottom is a comprehensive navigation guide with a mac keyboard layout, this is because Marijn uses a MacBook. I implemented navigation keys on the right side of the keyboard because that's what Marijn preferred. The guide is in Dutch because that is his main spoken language. Here is an enlarged image of the navigation guide:
 
@@ -87,7 +87,7 @@ At the bottom is a comprehensive navigation guide with a mac keyboard layout, th
 
 </details>  
 
-In order to move an item, Marijn must first set focus on an item. When entering the site, the first item is standard in focus. Once Marijn has chosen an item he wants to move, he clicks the hold/release button. Now the prototype is in the state of holding an item, this is indicated by the box shadow of an item and the background of the board being a different color. Marijn can now change the board to hover over by navigating left or right. The background of the board changes when it is hovered over. Once the wanted board is hovered over, Marijn can press the hold/release button. Now the item is moved to the specified board and focus is set on the item that has been moved. Here is a wireframe of this action:
+In order to move an item, Marijn must first set focus on an item. When entering the site, the first item is standard in focus. Once Marijn has chosen an item he wants to move, he clicks the hold/release button. Now the prototype is in the state of holding an item, this is indicated by the box shadow of an item. Marijn can now change the board to hover over by navigating left or right. Once the correct targeted board is hovered over, Marijn can press the hold/release button. Now the item is moved to the specified board and focus is set on the item that has been moved. Here is a wireframe of this particular action:
 
 ![Image](./docs/img/moving_item-v2.png)
 
